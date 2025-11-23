@@ -115,7 +115,6 @@ function Main(){
 }
 
 function ListBox(){
-  const [movies, setMovies] = useState(tempMovieData);
   const [isOpen1, setIsOpen1] = useState(true);
 
   return(
@@ -126,8 +125,16 @@ function ListBox(){
           >
             {isOpen1 ? "–" : "+"}
           </button>
-          {isOpen1 && (
-            <ul className="list">
+          {isOpen1 && <MovieList />}
+        </div>
+  )
+}
+
+function MovieList(){
+  const [movies, setMovies] = useState(tempMovieData);
+
+  return(
+     <ul className="list">
               {movies?.map((movie) => (
                 <li key={movie.imdbID}>
                   <img src={movie.Poster} alt={`${movie.Title} poster`} />
@@ -141,8 +148,6 @@ function ListBox(){
                 </li>
               ))}
             </ul>
-          )}
-        </div>
   )
 }
 
