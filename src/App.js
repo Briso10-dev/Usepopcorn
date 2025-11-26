@@ -50,6 +50,7 @@ const tempWatchedData = [
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
+//structured component
 export default function App() {   
   return (
     <>     
@@ -58,7 +59,7 @@ export default function App() {
     </>
   );
 }
-
+//structured component . responsible for the structure and the layout of the app.
 function NavBar(){
   
   return (
@@ -71,7 +72,7 @@ function NavBar(){
 
   )
 }
-
+//stateless component
 function Logo(){
     return(
       <div className="logo">
@@ -80,7 +81,7 @@ function Logo(){
         </div>
     )
 }
- 
+//stateful component
 function Search(){
   const [query, setQuery] = useState("");
   return(
@@ -94,7 +95,7 @@ function Search(){
 
   )
 }
-
+//stateless/presentational component
 function NumResults(){
   return(
        <p className="num-results">
@@ -113,7 +114,7 @@ function Main(){
 
   )
 }
-
+//stateful component
 function ListBox(){
   const [isOpen1, setIsOpen1] = useState(true);
 
@@ -129,7 +130,7 @@ function ListBox(){
         </div>
   )
 }
-
+//stateful component
 function MovieList(){
   const [movies, setMovies] = useState(tempMovieData);
 
@@ -141,7 +142,7 @@ function MovieList(){
             </ul>
   )
 }
-
+//stateless component
 function Movie({ movie }){
   return(
      <li key={movie.imdbID}>
@@ -156,7 +157,7 @@ function Movie({ movie }){
                 </li>
   )
 }
-
+//stateful component
 function WatchBox(){
   const [watched, setWatched] = useState(tempWatchedData);
   const [isOpen2, setIsOpen2] = useState(true);
@@ -180,7 +181,7 @@ function WatchBox(){
 
   )
 }
-
+//stateless component
 function WatchedSummary({watched }){
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
   const avgUserRating = average(watched.map((movie) => movie.userRating));
@@ -210,7 +211,7 @@ function WatchedSummary({watched }){
               </div>
   )
 }
-
+//stateless component
 function WatchedMoviesList({watched}){
   return(
        <ul className="list">
@@ -220,7 +221,7 @@ function WatchedMoviesList({watched}){
               </ul>
   )
 }
-
+//stateless component
 function WatchMovie({movie}){
   return(
        <li key={movie.imdbID}>
