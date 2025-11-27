@@ -56,12 +56,16 @@ export default function App() {
 
   return (
     <>     
-      <NavBar movies={movies}>
-         <Logo />
+      <NavBar>
          <Search />
-        <NumResults movies={movies}/> 
+          <NumResults movies={movies}/> 
        </NavBar>  
-      <Main movies={movies} />
+      <Main>
+        <ListBox>
+            <MovieList movies={movies} />
+        </ListBox>
+        <WatchBox/>
+      </Main>
     </>
   );
 }
@@ -70,6 +74,7 @@ function NavBar({ children }){
   
   return (
     <nav className="nav-bar">
+       <Logo />
        {children}
       </nav>
   
@@ -108,18 +113,17 @@ function NumResults({movies}){
   )
 }
 
-function Main({movies}){
+function Main({children}){
 
   return(
        <main className="main">
-       <ListBox movies={movies}/>
-       <WatchBox/> 
+       {children}
       </main>
 
   )
 }
 //stateful component
-function ListBox({ movies }){
+function ListBox({children}){
   const [isOpen1, setIsOpen1] = useState(true);
 
   return(
@@ -130,7 +134,7 @@ function ListBox({ movies }){
           >
             {isOpen1 ? "–" : "+"}
           </button>
-          {isOpen1 && <MovieList movies={movies} />}
+          {isOpen1 && children}
         </div>
   )
 }
