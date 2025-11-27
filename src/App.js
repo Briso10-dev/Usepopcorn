@@ -56,19 +56,21 @@ export default function App() {
 
   return (
     <>     
-      <NavBar movies={movies} /> 
+      <NavBar movies={movies}>
+         <Logo />
+         <Search />
+        <NumResults movies={movies}/> 
+       </NavBar>  
       <Main movies={movies} />
     </>
   );
 }
 //structured component . responsible for the structure and the layout of the app.
-function NavBar({movies}){
+function NavBar({ children }){
   
   return (
     <nav className="nav-bar">
-      <Logo />
-      <Search />
-      <NumResults movies={movies}/> 
+       {children}
       </nav>
   
 
