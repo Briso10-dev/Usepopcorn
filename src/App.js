@@ -62,7 +62,15 @@ export default function App() {
           <NumResults movies={movies}/> 
        </NavBar>  
       <Main>
-        <Box element={<MovieList movies={movies} />}/>
+         <Box element={<MovieList movies={movies} />}/>  {/*//pattern used in react router and helps when  willing passing multiple elts and give them separate names */}
+        <Box
+          element={
+            <>
+            <WatchedSummary watched={watched} />
+             <WatchedMoviesList watched={watched} /> 
+            </>
+          }
+          />
         {/* <Box>
             <MovieList movies={movies} />
         </Box>
