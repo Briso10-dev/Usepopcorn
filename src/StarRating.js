@@ -15,11 +15,11 @@ const textStyle = {
 
 }
 
-export default function StarRating(){
+export default function StarRating({maxRating = 5}){ //very common way in setting default props in React apps
     return(
         <div style={containerStyle}>
             <div style={starContainerStyle} >
-                {Array.from({length: 5}, (_, i) => (
+                {Array.from({length: maxRating}, (_, i) => (
                     <span>s{i+1}</span>
                 ))}
             </div>
