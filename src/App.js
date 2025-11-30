@@ -62,22 +62,13 @@ export default function App() {
           <NumResults movies={movies}/> 
        </NavBar>  
       <Main>
-         <Box element={<MovieList movies={movies} />}/>  {/*//pattern used in react router and helps when  willing passing multiple elts and give them separate names */}
-        <Box
-          element={
-            <>
-            <WatchedSummary watched={watched} />
-             <WatchedMoviesList watched={watched} /> 
-            </>
-          }
-          />
-        {/* <Box>
+        <Box>
             <MovieList movies={movies} />
         </Box>
         <Box >
              <WatchedSummary watched={watched} />
              <WatchedMoviesList watched={watched} /> 
-        </Box>  */}
+        </Box>  
       </Main>
     </>
   );
@@ -136,7 +127,7 @@ function Main({children}){
   )
 }
 //stateful component
-function Box({element}){
+function Box({children}){
   const [isOpen, setIsOpen] = useState(true);
 
   return(
@@ -147,7 +138,7 @@ function Box({element}){
           >
             {isOpen ? "–" : "+"}
           </button>
-          {isOpen && element}
+          {isOpen && children}
         </div>
   )
 }
