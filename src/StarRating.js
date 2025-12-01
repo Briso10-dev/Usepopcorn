@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const containerStyle = {
     display: "flex",
     alignItems: "center",
@@ -21,10 +23,10 @@ export default function StarRating({ maxRating = 5 }) { //very common way in set
         <div style={containerStyle}>
             <div style={starContainerStyle} >
                 {Array.from({ length: maxRating }, (_, i) => (
-                    <Star key={i} />
+                    <Star key={i} onClick={() => setRating(i+1)} />
                 ))}
             </div>
-            <p style={textStyle}>{rating}</p>
+            <p style={textStyle}>{rating || ""}</p>
         </div>
     )
 }
