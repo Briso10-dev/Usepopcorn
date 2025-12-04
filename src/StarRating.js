@@ -18,6 +18,7 @@ const textStyle = {
 
 export default function StarRating({ maxRating = 5 }) { //very common way in setting default props in React apps
     const [rating, setRating] = useState(1)
+    const [tempRating, setTemprating] = useState(0);
 
     function handleRating(rating) {
         setRating(rating);
@@ -29,8 +30,7 @@ export default function StarRating({ maxRating = 5 }) { //very common way in set
                 {Array.from({ length: maxRating }, (_, i) => (
                     <Star key={i} 
                     onRate={() => handleRating(i + 1)} 
-                    full={rating >= i +1}
-                    />
+                    full={rating >= i +1}/>
                 ))}
             </div>
             <p style={textStyle}>{rating || ""}</p>
