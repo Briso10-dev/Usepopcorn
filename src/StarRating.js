@@ -10,13 +10,7 @@ const starContainerStyle = {
     display: "flex",
 }
 
-const textStyle = {
-    lineHeight: "1",
-    margin: "0",
-
-}
-
-export default function StarRating({ maxRating = 5 }) { //very common way in setting default props in React apps
+export default function StarRating({ maxRating = 5, color = "#fcc419", size=48 }) { //very common way in setting default props in React apps
     const [rating, setRating] = useState(1)
     const [tempRating, setTempRating] = useState(0);
 
@@ -24,6 +18,12 @@ export default function StarRating({ maxRating = 5 }) { //very common way in set
         setRating(rating);
     }
 
+    const textStyle = {
+    lineHeight: "1", 
+    margin: "0",
+    color,
+    fontSize: `${size / 1.5}px`,
+    }
     return (
         <div style={containerStyle}>
             <div style={starContainerStyle} >
