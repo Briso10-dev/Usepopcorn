@@ -16,12 +16,14 @@ export default function StarRating({
     size=48,  
     messages =[],   //very common way in setting default props in React apps
     defaultRating = 0, 
+    onSetRating,
     }) {   
     const [rating, setRating] = useState(defaultRating)
     const [tempRating, setTempRating] = useState(0);
 
     function handleRating(rating) {
         setRating(rating);
+        onSetRating(rating);
     }
 
     const textStyle = {
