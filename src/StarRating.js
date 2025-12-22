@@ -10,7 +10,7 @@ const starContainerStyle = {
     display: "flex",
 }
 
-export default function StarRating({ maxRating = 5, color = "#fcc419", size=48 }) { //very common way in setting default props in React apps
+export default function StarRating({ maxRating = 5, color = "#fcc419", size=48,  messages =[], }) { //very common way in setting default props in React apps
     const [rating, setRating] = useState(1)
     const [tempRating, setTempRating] = useState(0);
 
@@ -39,7 +39,8 @@ export default function StarRating({ maxRating = 5, color = "#fcc419", size=48 }
                     />
                 ))}
             </div>
-            <p style={textStyle}>{tempRating || rating  || ""}</p>
+            <p style={textStyle}>{ messages.length === maxRating ? messages[tempRating ? tempRating -1 : rating - 1] : 
+            tempRating || rating  || ""}</p>
         </div>
     )
 }
